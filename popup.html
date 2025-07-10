@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus Blocker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Focus Website Blocker</h2>
+
+    <!-- Toggle for Focus Mode -->
+    <div class="focus-toggle">
+      <h3>Focus Mode</h3>
+      <label class="switch">
+        <input type="checkbox" id="focusToggle" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- Input for Blocked Sites -->
+    <input type="text" id="siteInput" placeholder="e.g. youtube.com" />
+    <button id="addBtn">➕ Add Site</button>
+
+    <h3>Blocked Sites</h3>
+    <ul id="blockedList"></ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

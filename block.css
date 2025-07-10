@@ -1,0 +1,296 @@
+/* Stay Focused - Block Page CSS */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating particles background */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    );
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(15px) rotate(-1deg);
+  }
+}
+
+/* Main container */
+body > * {
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: pulse 2s ease-in-out infinite alternate;
+  position: relative;
+  letter-spacing: -2px;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    transform: scale(1.05);
+    text-shadow: 0 6px 30px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Glowing effect around the emoji */
+h1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: glow 3s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+p {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out 0.5s both;
+  position: relative;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Motivational message that appears after the main content */
+p::after {
+  content: "💪 You've got this! Stay strong and keep focusing on what matters most.";
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideInUp 1s ease-out 1.5s both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Decorative elements */
+body::after {
+  content: "✨ 🎯 ⚡ 🚀 💎 🌟 ⭐ 🔥";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 20px;
+  animation: sparkle 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  p::after {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+
+  body::after {
+    bottom: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  body::after {
+    letter-spacing: 10px;
+    font-size: 1rem;
+  }
+
+  p::after {
+    padding: 12px;
+    font-size: 0.75rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    background: #000;
+  }
+
+  h1,
+  p {
+    color: #fff;
+    text-shadow: none;
+  }
+
+  p::after {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body::before {
+    animation: none;
+  }
+
+  body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  }
+}
